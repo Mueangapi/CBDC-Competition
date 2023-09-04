@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.9.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "bearing": 0,
+    "latitude": 18.7833,
+    "longitude": 98.9667,
+    "pitch": 0,
+    "zoom": 4
+  },
+  "layers": [
+    {
+      "@@type": "GreatCircleLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "Unnamed: 0": 0,
+          "from": {
+            "coordinates": [
+              99.580596,
+              8.575083
+            ],
+            "name": "Location0 in Rectangle 2"
+          },
+          "from_coordinates": [
+            99.580596,
+            8.575083
+          ],
+          "to": {
+            "coordinates": [
+              97.648375,
+              20.027254
+            ],
+            "name": "Location0 in Rectangle 1"
+          },
+          "to_coordinates": [
+            97.648375,
+            20.027254
+          ]
+        },
+        {
+          "Unnamed: 0": 1,
+          "from": {
+            "coordinates": [
+              103.801532,
+              8.488177
+            ],
+            "name": "Location1 in Rectangle 2"
+          },
+          "from_coordinates": [
+            103.801532,
+            8.488177
+          ],
+          "to": {
+            "coordinates": [
+              100.293536,
+              19.691392
+            ],
+            "name": "Location1 in Rectangle 1"
+          },
+          "to_coordinates": [
+            100.293536,
+            19.691392
+          ]
+        },
+        {
+          "Unnamed: 0": 2,
+          "from": {
+            "coordinates": [
+              98.031679,
+              8.542023
+            ],
+            "name": "Location2 in Rectangle 2"
+          },
+          "from_coordinates": [
+            98.031679,
+            8.542023
+          ],
+          "to": {
+            "coordinates": [
+              98.382408,
+              8.572495
+            ],
+            "name": "Location2 in Rectangle 2"
+          },
+          "to_coordinates": [
+            98.382408,
+            8.572495
+          ]
+        },
+        {
+          "Unnamed: 0": 3,
+          "from": {
+            "coordinates": [
+              105.029513,
+              19.910065
+            ],
+            "name": "Location3 in Rectangle 1"
+          },
+          "from_coordinates": [
+            105.029513,
+            19.910065
+          ],
+          "to": {
+            "coordinates": [
+              102.106276,
+              8.408907
+            ],
+            "name": "Location3 in Rectangle 2"
+          },
+          "to_coordinates": [
+            102.106276,
+            8.408907
+          ]
+        },
+        {
+          "Unnamed: 0": 4,
+          "from": {
+            "coordinates": [
+              103.90056,
+              19.627501
+            ],
+            "name": "Location4 in Rectangle 1"
+          },
+          "from_coordinates": [
+            103.90056,
+            19.627501
+          ],
+          "to": {
+            "coordinates": [
+              105.432259,
+              8.392994
+            ],
+            "name": "Location4 in Rectangle 2"
+          },
+          "to_coordinates": [
+            105.432259,
+            8.392994
+          ]
+        },
+        {
+          "Unnamed: 0": 5,
+          "from": {
+            "coordinates": [
+              102.85167,
+              8.545206
+            ],
+            "name": "Location5 in Rectangle 2"
+          },
+          "from_coordinates": [
+            102.85167,
+            8.545206
+          ],
+          "to": {
+            "coordinates": [
+              97.801705,
+              19.858979
+            ],
+            "name": "Location5 in Rectangle 1"
+          },
+          "to_coordinates": [
+            97.801705,
+            19.858979
+          ]
+        },
+        {
+          "Unnamed: 0": 6,
+          "from": {
+            "coordinates": [
+              105.494253,
+              8.553054
+            ],
+            "name": "Location6 in Rectangle 2"
+          },
+          "from_coordinates": [
+            105.494253,
+            8.553054
+          ],
+          "to": {
+            "coordinates": [
+              100.326655,
+              8.381511
+            ],
+            "name": "Location6 in Rectangle 2"
+          },
+          "to_coordinates": [
+            100.326655,
+            8.381511
+          ]
+        },
+        {
+          "Unnamed: 0": 7,
+          "from": {
+            "coordinates": [
+              103.514892,
+              19.47894
+            ],
+            "name": "Location7 in Rectangle 1"
+          },
+          "from_coordinates": [
+            103.514892,
+            19.47894
+          ],
+          "to": {
+            "coordinates": [
+              97.695373,
+              19.710447
+            ],
+            "name": "Location7 in Rectangle 1"
+          },
+          "to_coordinates": [
+            97.695373,
+            19.710447
+          ]
+        },
+        {
+          "Unnamed: 0": 8,
+          "from": {
+            "coordinates": [
+              98.959791,
+              19.527694
+            ],
+            "name": "Location8 in Rectangle 1"
+          },
+          "from_coordinates": [
+            98.959791,
+            19.527694
+          ],
+          "to": {
+            "coordinates": [
+              105.510294,
+              8.450961
+            ],
+            "name": "Location8 in Rectangle 2"
+          },
+          "to_coordinates": [
+            105.510294,
+            8.450961
+          ]
+        },
+        {
+          "Unnamed: 0": 9,
+          "from": {
+            "coordinates": [
+              105.327804,
+              20.06945
+            ],
+            "name": "Location9 in Rectangle 1"
+          },
+          "from_coordinates": [
+            105.327804,
+            20.06945
+          ],
+          "to": {
+            "coordinates": [
+              103.477594,
+              8.425901
+            ],
+            "name": "Location9 in Rectangle 2"
+          },
+          "to_coordinates": [
+            103.477594,
+            8.425901
+          ]
+        },
+        {
+          "Unnamed: 0": 10,
+          "from": {
+            "coordinates": [
+              103.395581,
+              19.987582
+            ],
+            "name": "Location10 in Rectangle 1"
+          },
+          "from_coordinates": [
+            103.395581,
+            19.987582
+          ],
+          "to": {
+            "coordinates": [
+              100.952513,
+              8.553105
+            ],
+            "name": "Location10 in Rectangle 2"
+          },
+          "to_coordinates": [
+            100.952513,
+            8.553105
+          ]
+        },
+        {
+          "Unnamed: 0": 11,
+          "from": {
+            "coordinates": [
+              103.190082,
+              19.824053
+            ],
+            "name": "Location11 in Rectangle 1"
+          },
+          "from_coordinates": [
+            103.190082,
+            19.824053
+          ],
+          "to": {
+            "coordinates": [
+              105.399675,
+              8.509566
+            ],
+            "name": "Location11 in Rectangle 2"
+          },
+          "to_coordinates": [
+            105.399675,
+            8.509566
+          ]
+        },
+        {
+          "Unnamed: 0": 12,
+          "from": {
+            "coordinates": [
+              101.302913,
+              19.836796
+            ],
+            "name": "Location12 in Rectangle 1"
+          },
+          "from_coordinates": [
+            101.302913,
+            19.836796
+          ],
+          "to": {
+            "coordinates": [
+              97.456499,
+              8.542659
+            ],
+            "name": "Location12 in Rectangle 2"
+          },
+          "to_coordinates": [
+            97.456499,
+            8.542659
+          ]
+        },
+        {
+          "Unnamed: 0": 13,
+          "from": {
+            "coordinates": [
+              100.138597,
+              19.710926
+            ],
+            "name": "Location13 in Rectangle 1"
+          },
+          "from_coordinates": [
+            100.138597,
+            19.710926
+          ],
+          "to": {
+            "coordinates": [
+              101.339717,
+              19.561522
+            ],
+            "name": "Location13 in Rectangle 1"
+          },
+          "to_coordinates": [
+            101.339717,
+            19.561522
+          ]
+        },
+        {
+          "Unnamed: 0": 14,
+          "from": {
+            "coordinates": [
+              98.536095,
+              19.478997
+            ],
+            "name": "Location14 in Rectangle 1"
+          },
+          "from_coordinates": [
+            98.536095,
+            19.478997
+          ],
+          "to": {
+            "coordinates": [
+              97.246038,
+              19.499202
+            ],
+            "name": "Location14 in Rectangle 1"
+          },
+          "to_coordinates": [
+            97.246038,
+            19.499202
+          ]
+        },
+        {
+          "Unnamed: 0": 15,
+          "from": {
+            "coordinates": [
+              98.213948,
+              8.547087
+            ],
+            "name": "Location15 in Rectangle 2"
+          },
+          "from_coordinates": [
+            98.213948,
+            8.547087
+          ],
+          "to": {
+            "coordinates": [
+              99.716995,
+              19.908102
+            ],
+            "name": "Location15 in Rectangle 1"
+          },
+          "to_coordinates": [
+            99.716995,
+            19.908102
+          ]
+        },
+        {
+          "Unnamed: 0": 16,
+          "from": {
+            "coordinates": [
+              105.115267,
+              19.908152
+            ],
+            "name": "Location16 in Rectangle 1"
+          },
+          "from_coordinates": [
+            105.115267,
+            19.908152
+          ],
+          "to": {
+            "coordinates": [
+              102.2986,
+              8.479226
+            ],
+            "name": "Location16 in Rectangle 2"
+          },
+          "to_coordinates": [
+            102.2986,
+            8.479226
+          ]
+        },
+        {
+          "Unnamed: 0": 17,
+          "from": {
+            "coordinates": [
+              106.008804,
+              8.486933
+            ],
+            "name": "Location17 in Rectangle 2"
+          },
+          "from_coordinates": [
+            106.008804,
+            8.486933
+          ],
+          "to": {
+            "coordinates": [
+              101.548842,
+              8.567055
+            ],
+            "name": "Location17 in Rectangle 2"
+          },
+          "to_coordinates": [
+            101.548842,
+            8.567055
+          ]
+        },
+        {
+          "Unnamed: 0": 18,
+          "from": {
+            "coordinates": [
+              100.40915,
+              19.519296
+            ],
+            "name": "Location18 in Rectangle 1"
+          },
+          "from_coordinates": [
+            100.40915,
+            19.519296
+          ],
+          "to": {
+            "coordinates": [
+              99.68235,
+              8.500827
+            ],
+            "name": "Location18 in Rectangle 2"
+          },
+          "to_coordinates": [
+            99.68235,
+            8.500827
+          ]
+        },
+        {
+          "Unnamed: 0": 19,
+          "from": {
+            "coordinates": [
+              97.553901,
+              19.56297
+            ],
+            "name": "Location19 in Rectangle 1"
+          },
+          "from_coordinates": [
+            97.553901,
+            19.56297
+          ],
+          "to": {
+            "coordinates": [
+              97.986914,
+              8.479671
+            ],
+            "name": "Location19 in Rectangle 2"
+          },
+          "to_coordinates": [
+            97.986914,
+            8.479671
+          ]
+        },
+        {
+          "Unnamed: 0": 20,
+          "from": {
+            "coordinates": [
+              98.39677,
+              19.878491
+            ],
+            "name": "Location20 in Rectangle 1"
+          },
+          "from_coordinates": [
+            98.39677,
+            19.878491
+          ],
+          "to": {
+            "coordinates": [
+              98.888802,
+              19.563432
+            ],
+            "name": "Location20 in Rectangle 1"
+          },
+          "to_coordinates": [
+            98.888802,
+            19.563432
+          ]
+        },
+        {
+          "Unnamed: 0": 21,
+          "from": {
+            "coordinates": [
+              97.927471,
+              19.915676
+            ],
+            "name": "Location21 in Rectangle 1"
+          },
+          "from_coordinates": [
+            97.927471,
+            19.915676
+          ],
+          "to": {
+            "coordinates": [
+              104.282012,
+              8.456961
+            ],
+            "name": "Location21 in Rectangle 2"
+          },
+          "to_coordinates": [
+            104.282012,
+            8.456961
+          ]
+        },
+        {
+          "Unnamed: 0": 22,
+          "from": {
+            "coordinates": [
+              101.324192,
+              20.005936
+            ],
+            "name": "Location22 in Rectangle 1"
+          },
+          "from_coordinates": [
+            101.324192,
+            20.005936
+          ],
+          "to": {
+            "coordinates": [
+              103.327058,
+              20.010856
+            ],
+            "name": "Location22 in Rectangle 1"
+          },
+          "to_coordinates": [
+            103.327058,
+            20.010856
+          ]
+        },
+        {
+          "Unnamed: 0": 23,
+          "from": {
+            "coordinates": [
+              105.581637,
+              19.773248
+            ],
+            "name": "Location23 in Rectangle 1"
+          },
+          "from_coordinates": [
+            105.581637,
+            19.773248
+          ],
+          "to": {
+            "coordinates": [
+              101.529209,
+              8.421056
+            ],
+            "name": "Location23 in Rectangle 2"
+          },
+          "to_coordinates": [
+            101.529209,
+            8.421056
+          ]
+        },
+        {
+          "Unnamed: 0": 24,
+          "from": {
+            "coordinates": [
+              100.827163,
+              19.904934
+            ],
+            "name": "Location24 in Rectangle 1"
+          },
+          "from_coordinates": [
+            100.827163,
+            19.904934
+          ],
+          "to": {
+            "coordinates": [
+              104.096274,
+              8.517503
+            ],
+            "name": "Location24 in Rectangle 2"
+          },
+          "to_coordinates": [
+            104.096274,
+            8.517503
+          ]
+        },
+        {
+          "Unnamed: 0": 25,
+          "from": {
+            "coordinates": [
+              101.834475,
+              19.506475
+            ],
+            "name": "Location25 in Rectangle 1"
+          },
+          "from_coordinates": [
+            101.834475,
+            19.506475
+          ],
+          "to": {
+            "coordinates": [
+              101.023529,
+              8.509949
+            ],
+            "name": "Location25 in Rectangle 2"
+          },
+          "to_coordinates": [
+            101.023529,
+            8.509949
+          ]
+        },
+        {
+          "Unnamed: 0": 26,
+          "from": {
+            "coordinates": [
+              105.183099,
+              19.764858
+            ],
+            "name": "Location26 in Rectangle 1"
+          },
+          "from_coordinates": [
+            105.183099,
+            19.764858
+          ],
+          "to": {
+            "coordinates": [
+              106.038793,
+              19.979336
+            ],
+            "name": "Location26 in Rectangle 1"
+          },
+          "to_coordinates": [
+            106.038793,
+            19.979336
+          ]
+        },
+        {
+          "Unnamed: 0": 27,
+          "from": {
+            "coordinates": [
+              101.025545,
+              8.556292
+            ],
+            "name": "Location27 in Rectangle 2"
+          },
+          "from_coordinates": [
+            101.025545,
+            8.556292
+          ],
+          "to": {
+            "coordinates": [
+              104.478647,
+              8.454607
+            ],
+            "name": "Location27 in Rectangle 2"
+          },
+          "to_coordinates": [
+            104.478647,
+            8.454607
+          ]
+        },
+        {
+          "Unnamed: 0": 28,
+          "from": {
+            "coordinates": [
+              100.058728,
+              8.593866
+            ],
+            "name": "Location28 in Rectangle 2"
+          },
+          "from_coordinates": [
+            100.058728,
+            8.593866
+          ],
+          "to": {
+            "coordinates": [
+              98.885124,
+              8.397666
+            ],
+            "name": "Location28 in Rectangle 2"
+          },
+          "to_coordinates": [
+            98.885124,
+            8.397666
+          ]
+        },
+        {
+          "Unnamed: 0": 29,
+          "from": {
+            "coordinates": [
+              106.298231,
+              19.741969
+            ],
+            "name": "Location29 in Rectangle 1"
+          },
+          "from_coordinates": [
+            106.298231,
+            19.741969
+          ],
+          "to": {
+            "coordinates": [
+              100.902806,
+              19.568947
+            ],
+            "name": "Location29 in Rectangle 1"
+          },
+          "to_coordinates": [
+            100.902806,
+            19.568947
+          ]
+        },
+        {
+          "Unnamed: 0": 30,
+          "from": {
+            "coordinates": [
+              105.351493,
+              19.643617
+            ],
+            "name": "Location30 in Rectangle 1"
+          },
+          "from_coordinates": [
+            105.351493,
+            19.643617
+          ],
+          "to": {
+            "coordinates": [
+              103.442598,
+              8.553241
+            ],
+            "name": "Location30 in Rectangle 2"
+          },
+          "to_coordinates": [
+            103.442598,
+            8.553241
+          ]
+        },
+        {
+          "Unnamed: 0": 31,
+          "from": {
+            "coordinates": [
+              105.633112,
+              19.930068
+            ],
+            "name": "Location31 in Rectangle 1"
+          },
+          "from_coordinates": [
+            105.633112,
+            19.930068
+          ],
+          "to": {
+            "coordinates": [
+              104.865423,
+              8.480716
+            ],
+            "name": "Location31 in Rectangle 2"
+          },
+          "to_coordinates": [
+            104.865423,
+            8.480716
+          ]
+        },
+        {
+          "Unnamed: 0": 32,
+          "from": {
+            "coordinates": [
+              97.669252,
+              8.597821
+            ],
+            "name": "Location32 in Rectangle 2"
+          },
+          "from_coordinates": [
+            97.669252,
+            8.597821
+          ],
+          "to": {
+            "coordinates": [
+              98.666635,
+              20.072039
+            ],
+            "name": "Location32 in Rectangle 1"
+          },
+          "to_coordinates": [
+            98.666635,
+            20.072039
+          ]
+        },
+        {
+          "Unnamed: 0": 33,
+          "from": {
+            "coordinates": [
+              99.589005,
+              19.878965
+            ],
+            "name": "Location33 in Rectangle 1"
+          },
+          "from_coordinates": [
+            99.589005,
+            19.878965
+          ],
+          "to": {
+            "coordinates": [
+              102.828383,
+              20.000917
+            ],
+            "name": "Location33 in Rectangle 1"
+          },
+          "to_coordinates": [
+            102.828383,
+            20.000917
+          ]
+        },
+        {
+          "Unnamed: 0": 34,
+          "from": {
+            "coordinates": [
+              99.049646,
+              19.743724
+            ],
+            "name": "Location34 in Rectangle 1"
+          },
+          "from_coordinates": [
+            99.049646,
+            19.743724
+          ],
+          "to": {
+            "coordinates": [
+              105.157938,
+              8.386351
+            ],
+            "name": "Location34 in Rectangle 2"
+          },
+          "to_coordinates": [
+            105.157938,
+            8.386351
+          ]
+        },
+        {
+          "Unnamed: 0": 35,
+          "from": {
+            "coordinates": [
+              98.145292,
+              8.435027
+            ],
+            "name": "Location35 in Rectangle 2"
+          },
+          "from_coordinates": [
+            98.145292,
+            8.435027
+          ],
+          "to": {
+            "coordinates": [
+              102.465166,
+              8.490441
+            ],
+            "name": "Location35 in Rectangle 2"
+          },
+          "to_coordinates": [
+            102.465166,
+            8.490441
+          ]
+        },
+        {
+          "Unnamed: 0": 36,
+          "from": {
+            "coordinates": [
+              104.76817,
+              8.53466
+            ],
+            "name": "Location36 in Rectangle 2"
+          },
+          "from_coordinates": [
+            104.76817,
+            8.53466
+          ],
+          "to": {
+            "coordinates": [
+              101.973291,
+              8.533666
+            ],
+            "name": "Location36 in Rectangle 2"
+          },
+          "to_coordinates": [
+            101.973291,
+            8.533666
+          ]
+        },
+        {
+          "Unnamed: 0": 37,
+          "from": {
+            "coordinates": [
+              97.231068,
+              19.869448
+            ],
+            "name": "Location37 in Rectangle 1"
+          },
+          "from_coordinates": [
+            97.231068,
+            19.869448
+          ],
+          "to": {
+            "coordinates": [
+              102.668298,
+              19.88881
+            ],
+            "name": "Location37 in Rectangle 1"
+          },
+          "to_coordinates": [
+            102.668298,
+            19.88881
+          ]
+        },
+        {
+          "Unnamed: 0": 38,
+          "from": {
+            "coordinates": [
+              103.248832,
+              8.404481
+            ],
+            "name": "Location38 in Rectangle 2"
+          },
+          "from_coordinates": [
+            103.248832,
+            8.404481
+          ],
+          "to": {
+            "coordinates": [
+              102.819252,
+              8.501952
+            ],
+            "name": "Location38 in Rectangle 2"
+          },
+          "to_coordinates": [
+            102.819252,
+            8.501952
+          ]
+        },
+        {
+          "Unnamed: 0": 39,
+          "from": {
+            "coordinates": [
+              105.709486,
+              8.433679
+            ],
+            "name": "Location39 in Rectangle 2"
+          },
+          "from_coordinates": [
+            105.709486,
+            8.433679
+          ],
+          "to": {
+            "coordinates": [
+              104.841926,
+              8.544238
+            ],
+            "name": "Location39 in Rectangle 2"
+          },
+          "to_coordinates": [
+            104.841926,
+            8.544238
+          ]
+        },
+        {
+          "Unnamed: 0": 40,
+          "from": {
+            "coordinates": [
+              102.692949,
+              19.759034
+            ],
+            "name": "Location40 in Rectangle 1"
+          },
+          "from_coordinates": [
+            102.692949,
+            19.759034
+          ],
+          "to": {
+            "coordinates": [
+              103.497968,
+              8.570485
+            ],
+            "name": "Location40 in Rectangle 2"
+          },
+          "to_coordinates": [
+            103.497968,
+            8.570485
+          ]
+        },
+        {
+          "Unnamed: 0": 41,
+          "from": {
+            "coordinates": [
+              103.465543,
+              19.939223
+            ],
+            "name": "Location41 in Rectangle 1"
+          },
+          "from_coordinates": [
+            103.465543,
+            19.939223
+          ],
+          "to": {
+            "coordinates": [
+              99.486693,
+              8.57122
+            ],
+            "name": "Location41 in Rectangle 2"
+          },
+          "to_coordinates": [
+            99.486693,
+            8.57122
+          ]
+        },
+        {
+          "Unnamed: 0": 42,
+          "from": {
+            "coordinates": [
+              100.862188,
+              19.824494
+            ],
+            "name": "Location42 in Rectangle 1"
+          },
+          "from_coordinates": [
+            100.862188,
+            19.824494
+          ],
+          "to": {
+            "coordinates": [
+              102.55261,
+              8.437318
+            ],
+            "name": "Location42 in Rectangle 2"
+          },
+          "to_coordinates": [
+            102.55261,
+            8.437318
+          ]
+        },
+        {
+          "Unnamed: 0": 43,
+          "from": {
+            "coordinates": [
+              106.010298,
+              8.536249
+            ],
+            "name": "Location43 in Rectangle 2"
+          },
+          "from_coordinates": [
+            106.010298,
+            8.536249
+          ],
+          "to": {
+            "coordinates": [
+              103.606279,
+              19.465076
+            ],
+            "name": "Location43 in Rectangle 1"
+          },
+          "to_coordinates": [
+            103.606279,
+            19.465076
+          ]
+        },
+        {
+          "Unnamed: 0": 44,
+          "from": {
+            "coordinates": [
+              103.600598,
+              8.595511
+            ],
+            "name": "Location44 in Rectangle 2"
+          },
+          "from_coordinates": [
+            103.600598,
+            8.595511
+          ],
+          "to": {
+            "coordinates": [
+              98.721012,
+              8.443882
+            ],
+            "name": "Location44 in Rectangle 2"
+          },
+          "to_coordinates": [
+            98.721012,
+            8.443882
+          ]
+        },
+        {
+          "Unnamed: 0": 45,
+          "from": {
+            "coordinates": [
+              97.342131,
+              8.572755
+            ],
+            "name": "Location45 in Rectangle 2"
+          },
+          "from_coordinates": [
+            97.342131,
+            8.572755
+          ],
+          "to": {
+            "coordinates": [
+              104.289926,
+              8.465279
+            ],
+            "name": "Location45 in Rectangle 2"
+          },
+          "to_coordinates": [
+            104.289926,
+            8.465279
+          ]
+        },
+        {
+          "Unnamed: 0": 46,
+          "from": {
+            "coordinates": [
+              105.457231,
+              8.435606
+            ],
+            "name": "Location46 in Rectangle 2"
+          },
+          "from_coordinates": [
+            105.457231,
+            8.435606
+          ],
+          "to": {
+            "coordinates": [
+              105.357022,
+              8.394595
+            ],
+            "name": "Location46 in Rectangle 2"
+          },
+          "to_coordinates": [
+            105.357022,
+            8.394595
+          ]
+        },
+        {
+          "Unnamed: 0": 47,
+          "from": {
+            "coordinates": [
+              102.886599,
+              19.612581
+            ],
+            "name": "Location47 in Rectangle 1"
+          },
+          "from_coordinates": [
+            102.886599,
+            19.612581
+          ],
+          "to": {
+            "coordinates": [
+              106.266369,
+              19.770461
+            ],
+            "name": "Location47 in Rectangle 1"
+          },
+          "to_coordinates": [
+            106.266369,
+            19.770461
+          ]
+        },
+        {
+          "Unnamed: 0": 48,
+          "from": {
+            "coordinates": [
+              97.311763,
+              19.753275
+            ],
+            "name": "Location48 in Rectangle 1"
+          },
+          "from_coordinates": [
+            97.311763,
+            19.753275
+          ],
+          "to": {
+            "coordinates": [
+              101.24924,
+              8.482099
+            ],
+            "name": "Location48 in Rectangle 2"
+          },
+          "to_coordinates": [
+            101.24924,
+            8.482099
+          ]
+        },
+        {
+          "Unnamed: 0": 49,
+          "from": {
+            "coordinates": [
+              101.556111,
+              19.750198
+            ],
+            "name": "Location49 in Rectangle 1"
+          },
+          "from_coordinates": [
+            101.556111,
+            19.750198
+          ],
+          "to": {
+            "coordinates": [
+              100.863751,
+              19.712906
+            ],
+            "name": "Location49 in Rectangle 1"
+          },
+          "to_coordinates": [
+            100.863751,
+            19.712906
+          ]
+        }
+      ],
+      "getSourceColor": [
+        64,
+        255,
+        0
+      ],
+      "getSourcePosition": "@@=from_coordinates",
+      "getTargetColor": [
+        0,
+        128,
+        200
+      ],
+      "getTargetPosition": "@@=to_coordinates",
+      "id": "a6ed578d-1ebc-4faa-a420-3fab14e49b05",
+      "pickable": true
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "pickingRadius": 10,
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = {'text': 'From: {from_name}, To: {to_name}'};
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.9.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "bearing": 45,
+    "latitude": 37.7576171,
+    "longitude": -122.5776844,
+    "pitch": 50,
+    "zoom": 8
+  },
+  "layers": [
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            98.9667,
+            18.7833
+          ],
+          "radius": 231.0043289637664,
+          "to": {
+            "coordinates": [
+              98.9667,
+              18.7833
+            ],
+            "name": "Chiang Mai"
+          },
+          "to_name": "Chiang Mai",
+          "value": 53363
+        },
+        {
+          "from": {
+            "coordinates": [
+              98.3667,
+              7.875
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            100.507,
+            13.7577
+          ],
+          "radius": 280.0285699709942,
+          "to": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Phuket"
+          },
+          "to_name": "Phuket",
+          "value": 78416
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.9908,
+              12.9744
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            100.507,
+            13.7577
+          ],
+          "radius": 232.48870940327404,
+          "to": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Pattaya"
+          },
+          "to_name": "Pattaya",
+          "value": 54051
+        },
+        {
+          "from": {
+            "coordinates": [
+              98.9172,
+              7.8992
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            100.507,
+            13.7577
+          ],
+          "radius": 197.9242279257393,
+          "to": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Krabi"
+          },
+          "to_name": "Krabi",
+          "value": 39174
+        },
+        {
+          "from": {
+            "coordinates": [
+              99.9577,
+              12.5684
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            100.507,
+            13.7577
+          ],
+          "radius": 108.32358930537707,
+          "to": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Hua Hin"
+          },
+          "to_name": "Hua Hin",
+          "value": 11734
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.5675,
+              14.3576
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            100.507,
+            13.7577
+          ],
+          "radius": 279.5156525134147,
+          "to": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Ayutthaya"
+          },
+          "to_name": "Ayutthaya",
+          "value": 78129
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            98.9667,
+            18.7833
+          ],
+          "radius": 113.19452283569201,
+          "to": {
+            "coordinates": [
+              98.9667,
+              18.7833
+            ],
+            "name": "Chiang Mai"
+          },
+          "to_name": "Chiang Mai",
+          "value": 12813
+        },
+        {
+          "from": {
+            "coordinates": [
+              98.3667,
+              7.875
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            100.507,
+            7.875
+          ],
+          "radius": 226.03539545832197,
+          "to": {
+            "coordinates": [
+              100.507,
+              7.875
+            ],
+            "name": "Phuket"
+          },
+          "to_name": "Phuket",
+          "value": 51092
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.9908,
+              12.9744
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            100.507,
+            12.9744
+          ],
+          "radius": 297.7767620214848,
+          "to": {
+            "coordinates": [
+              100.507,
+              12.9744
+            ],
+            "name": "Pattaya"
+          },
+          "to_name": "Pattaya",
+          "value": 88671
+        },
+        {
+          "from": {
+            "coordinates": [
+              98.9172,
+              7.8992
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            100.507,
+            7.8992
+          ],
+          "radius": 270.11108825814614,
+          "to": {
+            "coordinates": [
+              100.507,
+              7.8992
+            ],
+            "name": "Krabi"
+          },
+          "to_name": "Krabi",
+          "value": 72960
+        },
+        {
+          "from": {
+            "coordinates": [
+              99.9577,
+              12.5684
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            100.507,
+            12.5684
+          ],
+          "radius": 276.1992034745937,
+          "to": {
+            "coordinates": [
+              100.507,
+              12.5684
+            ],
+            "name": "Hua Hin"
+          },
+          "to_name": "Hua Hin",
+          "value": 76286
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.5675,
+              14.3576
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            100.507,
+            14.3576
+          ],
+          "radius": 281.6043323530375,
+          "to": {
+            "coordinates": [
+              100.507,
+              14.3576
+            ],
+            "name": "Ayutthaya"
+          },
+          "to_name": "Ayutthaya",
+          "value": 79301
+        },
+        {
+          "from": {
+            "coordinates": [
+              115.8575,
+              -31.9505
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            151.2093,
+            -33.8688
+          ],
+          "radius": 111.77656283854859,
+          "to": {
+            "coordinates": [
+              151.2093,
+              -33.8688
+            ],
+            "name": "Sydney"
+          },
+          "to_name": "Sydney",
+          "value": 12494
+        },
+        {
+          "from": {
+            "coordinates": [
+              139.6917,
+              35.6895
+            ],
+            "name": "Tokyo"
+          },
+          "from_name": "Tokyo",
+          "location": [
+            126.978,
+            37.5665
+          ],
+          "radius": 124.16521251944927,
+          "to": {
+            "coordinates": [
+              126.978,
+              37.5665
+            ],
+            "name": "Seoul"
+          },
+          "to_name": "Seoul",
+          "value": 15417
+        },
+        {
+          "from": {
+            "coordinates": [
+              98.9667,
+              18.7833
+            ],
+            "name": "Chiang Mai"
+          },
+          "from_name": "Chiang Mai",
+          "location": [
+            99.8267,
+            19.9072
+          ],
+          "radius": 305.5045007851767,
+          "to": {
+            "coordinates": [
+              99.8267,
+              19.9072
+            ],
+            "name": "Chiang Rai"
+          },
+          "to_name": "Chiang Rai",
+          "value": 93333
+        },
+        {
+          "from": {
+            "coordinates": [
+              98.3667,
+              7.875
+            ],
+            "name": "Phuket"
+          },
+          "from_name": "Phuket",
+          "location": [
+            98.9172,
+            7.8992
+          ],
+          "radius": 233.4823333787805,
+          "to": {
+            "coordinates": [
+              98.9172,
+              7.8992
+            ],
+            "name": "Krabi"
+          },
+          "to_name": "Krabi",
+          "value": 54514
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            100.5675,
+            14.3576
+          ],
+          "radius": 276.9350104266342,
+          "to": {
+            "coordinates": [
+              100.5675,
+              14.3576
+            ],
+            "name": "Ayutthaya"
+          },
+          "to_name": "Ayutthaya",
+          "value": 76693
+        },
+        {
+          "from": {
+            "coordinates": [
+              102.837,
+              16.4322
+            ],
+            "name": "Khon Kaen"
+          },
+          "from_name": "Khon Kaen",
+          "location": [
+            102.78960000000001,
+            17.4158
+          ],
+          "radius": 273.95072549639286,
+          "to": {
+            "coordinates": [
+              102.78960000000001,
+              17.4158
+            ],
+            "name": "Udon Thani"
+          },
+          "to_name": "Udon Thani",
+          "value": 75049
+        },
+        {
+          "from": {
+            "coordinates": [
+              99.9683,
+              9.1348
+            ],
+            "name": "Surat Thani"
+          },
+          "from_name": "Surat Thani",
+          "location": [
+            99.9659,
+            8.4325
+          ],
+          "radius": 122.12288892750614,
+          "to": {
+            "coordinates": [
+              99.9659,
+              8.4325
+            ],
+            "name": "Nakhon Si Thammarat"
+          },
+          "to_name": "Nakhon Si Thammarat",
+          "value": 14914
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.2714,
+              16.8248
+            ],
+            "name": "Phitsanulok"
+          },
+          "from_name": "Phitsanulok",
+          "location": [
+            99.7092,
+            17.0055
+          ],
+          "radius": 133.83572019457287,
+          "to": {
+            "coordinates": [
+              99.7092,
+              17.0055
+            ],
+            "name": "Sukhothai"
+          },
+          "to_name": "Sukhothai",
+          "value": 17912
+        },
+        {
+          "from": {
+            "coordinates": [
+              102.1019,
+              14.9785
+            ],
+            "name": "Nakhon Ratchasima"
+          },
+          "from_name": "Nakhon Ratchasima",
+          "location": [
+            103.11,
+            14.9904
+          ],
+          "radius": 133.98880550254935,
+          "to": {
+            "coordinates": [
+              103.11,
+              14.9904
+            ],
+            "name": "Buriram"
+          },
+          "to_name": "Buriram",
+          "value": 17953
+        },
+        {
+          "from": {
+            "coordinates": [
+              99.615,
+              7.563
+            ],
+            "name": "Trang"
+          },
+          "from_name": "Trang",
+          "location": [
+            100.0664,
+            6.6232
+          ],
+          "radius": 267.0767679900294,
+          "to": {
+            "coordinates": [
+              100.0664,
+              6.6232
+            ],
+            "name": "Satun"
+          },
+          "to_name": "Satun",
+          "value": 71330
+        },
+        {
+          "from": {
+            "coordinates": [
+              101.2882,
+              13.6894
+            ],
+            "name": "Chachoengsao"
+          },
+          "from_name": "Chachoengsao",
+          "location": [
+            100.9884,
+            13.361
+          ],
+          "radius": 240.06249186409775,
+          "to": {
+            "coordinates": [
+              100.9884,
+              13.361
+            ],
+            "name": "Chonburi"
+          },
+          "to_name": "Chonburi",
+          "value": 57630
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.115,
+              15.7047
+            ],
+            "name": "Nakhon Sawan"
+          },
+          "from_name": "Nakhon Sawan",
+          "location": [
+            100.0514,
+            15.3792
+          ],
+          "radius": 125.19984025548915,
+          "to": {
+            "coordinates": [
+              100.0514,
+              15.3792
+            ],
+            "name": "Uthai Thani"
+          },
+          "to_name": "Uthai Thani",
+          "value": 15675
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            102.1019,
+            14.9785
+          ],
+          "radius": 101.97058399362044,
+          "to": {
+            "coordinates": [
+              102.1019,
+              14.9785
+            ],
+            "name": "Nakhon Ratchasima"
+          },
+          "to_name": "Nakhon Ratchasima",
+          "value": 10398
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            100.9884,
+            13.361
+          ],
+          "radius": 149.36867141405523,
+          "to": {
+            "coordinates": [
+              100.9884,
+              13.361
+            ],
+            "name": "Chonburi"
+          },
+          "to_name": "Chonburi",
+          "value": 22311
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            99.5228,
+            14.0246
+          ],
+          "radius": 295.7718715496793,
+          "to": {
+            "coordinates": [
+              99.5228,
+              14.0246
+            ],
+            "name": "Kanchanaburi"
+          },
+          "to_name": "Kanchanaburi",
+          "value": 87481
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            101.2839,
+            12.6803
+          ],
+          "radius": 145.4097658343483,
+          "to": {
+            "coordinates": [
+              101.2839,
+              12.6803
+            ],
+            "name": "Rayong"
+          },
+          "to_name": "Rayong",
+          "value": 21144
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            99.9536,
+            13.0893
+          ],
+          "radius": 224.82437590261426,
+          "to": {
+            "coordinates": [
+              99.9536,
+              13.0893
+            ],
+            "name": "Phetchaburi"
+          },
+          "to_name": "Phetchaburi",
+          "value": 50546
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            98.3667,
+            7.875
+          ],
+          "radius": 122.89426349508751,
+          "to": {
+            "coordinates": [
+              98.3667,
+              7.875
+            ],
+            "name": "Phuket"
+          },
+          "to_name": "Phuket",
+          "value": 15103
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            98.9667,
+            18.7833
+          ],
+          "radius": 112.4144118874444,
+          "to": {
+            "coordinates": [
+              98.9667,
+              18.7833
+            ],
+            "name": "Chiang Mai"
+          },
+          "to_name": "Chiang Mai",
+          "value": 12637
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            98.9172,
+            7.8992
+          ],
+          "radius": 296.8854998143224,
+          "to": {
+            "coordinates": [
+              98.9172,
+              7.8992
+            ],
+            "name": "Krabi"
+          },
+          "to_name": "Krabi",
+          "value": 88141
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            102.78960000000001,
+            17.4158
+          ],
+          "radius": 129.46041866145808,
+          "to": {
+            "coordinates": [
+              102.78960000000001,
+              17.4158
+            ],
+            "name": "Udon Thani"
+          },
+          "to_name": "Udon Thani",
+          "value": 16760
+        },
+        {
+          "from": {
+            "coordinates": [
+              100.507,
+              13.7577
+            ],
+            "name": "Bangkok"
+          },
+          "from_name": "Bangkok",
+          "location": [
+            99.9577,
+            12.5684
+          ],
+          "radius": 216.72332592501436,
+          "to": {
+            "coordinates": [
+              99.9577,
+              12.5684
+            ],
+            "name": "Hua Hin"
+          },
+          "to_name": "Hua Hin",
+          "value": 46969
+        }
+      ],
+      "getSourceColor": [
+        240,
+        100,
+        0,
+        40
+      ],
+      "getSourcePosition": "@@=[lng_h, lat_h]",
+      "getTargetColor": [
+        0,
+        255,
+        0,
+        40
+      ],
+      "getTargetPosition": "@@=[lng_w, lat_w]",
+      "getTilt": 15,
+      "getWidth": "@@=S000 * 2",
+      "id": "6c1b691b-7ccd-4c18-8539-0f518eed2635",
+      "pickable": true
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = {'html': '{S000} jobs <br /> Home of commuter in red; work location in green'};
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
