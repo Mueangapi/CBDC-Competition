@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Page Graph Viewer</title>
+    <!-- Include any CSS or styling here -->
+</head>
+<body>
+    <div id="navigation">
+        <ul>
+            <li><a href="StocksRelation.html" data-iframe-id="iframe1">Graph 1</a></li>
+            <li><a href="StocksRelation2.html" data-iframe-id="iframe2">สภาวะปกติ 2</a></li>
+            <li><a href="StocksRelation3.html" data-iframe-id="iframe3">อัดฉีดเงิน 3</a></li>
+            <li><a href="StocksRelation4.html" data-iframe-id="iframe4">เข้าสู่ Steady State 3</a></li>
+            <!-- Add more links for additional graphs if needed -->
+        </ul>
+    </div>
+
+    <div id="graph-container1">
+        <iframe id="iframe1" width="1200" height="800"></iframe>
+    </div>
+
+    <div id="graph-container2">
+        <iframe id="iframe2" width="1200" height="800"></iframe>
+    </div>
+    
+    <div id="graph-container3">
+        <iframe id="iframe3" width="1200" height="800"></iframe>
+    </div> 
+    
+    <div id="graph-container4">
+        <iframe id="iframe4" width="1200" height="800"></iframe>
+    </div>
+
+    <!-- Add more graph containers if needed -->
+
+    <script>
+        // JavaScript to load and display the selected graph
+        function loadGraph(graphUrl, iframeId) {
+            var iframe = document.getElementById(iframeId);
+            iframe.src = graphUrl; // Load the graph when a link is clicked
+        }
+
+        // Add event listeners to the links for page switching
+        var links = document.querySelectorAll('#navigation a');
+        links.forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                var graphUrl = link.getAttribute('href');
+                var iframeId = link.getAttribute('data-iframe-id');
+                loadGraph(graphUrl, iframeId);
+            });
+        });
+    </script>
+</body>
+</html>
